@@ -14,7 +14,7 @@ export class RealtimeData extends React.Component{
     }
 
     componentDidMount(){
-        const dbRef = ref(db,'Location');
+        const dbRef = ref(db,'Users');
 
         onValue(dbRef ,(snapshot)=>{
             let records=[];
@@ -30,20 +30,22 @@ export class RealtimeData extends React.Component{
 
     render(){
         return(
-        <Table>
+        <Table striped bordered hover size="sm">
             <thead>
                 <tr>
-                    <th>Received Location</th>
-                    <th>Received Photo</th>
+                    <th>Serial Number</th>
+                    <th>KEYS</th>
+                    <th>Received Lattitude</th>
+                    <th>Received Longitude</th>
                 </tr>
             </thead>
             <tbody>
                 {this.state.tableData.map((row,index)=>{
                     return(
-                        <tr>
-                        <td>{index}</td>
+                        <tr key={index}>
+                        <td>{index + 1}</td>
                         <td>{row.key}</td>
-                        <td>{row.data.latitude}</td>
+                        <td>{row.data.lattitude}</td>
                         <td>{row.data.longitude}</td>
                     </tr>
                     )
