@@ -5,19 +5,25 @@ import { Table } from "react-bootstrap";
 
 const db = StartFirebase();
 
-export class realtimeData extends React.Component{
+export class RealtimeData extends React.Component{
     constructor(){
-         super();
-         this.state = {
+         super(); //used when we need to access some variable of the parent class. Parent class here is React.Component
+         this.state = {  // this.state represents the rendered values, i.e. what’s currently on the screen.
             tableData: []
          }
     }
 
     componentDidMount(){
-        const dbRef = ref(db,'Customer');
+        const dbRef = ref(db,'Location');
 
         onValue(dbRef ,(snapshot)=>{
-
+            let records=[];
+            snapshot.forEach(childsnapshot=>{
+                let keyName=childsnapshot.key;
+                let data =  childsnapshot.val();
+                records.push({"key":keyName,"data":data});
+            });
+            this.setState({tableData: records});
         });
     }
 
