@@ -34,7 +34,7 @@ export class RealtimeData extends React.Component{
             <thead>
                 <tr>
                     <th>Serial Number</th>
-                    <th>KEYS</th>
+                    <th>User ID</th>
                     <th>Received Lattitude</th>
                     <th>Received Longitude</th>
                 </tr>
@@ -45,8 +45,8 @@ export class RealtimeData extends React.Component{
                         <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{row.key}</td>
-                        <td>{row.data.lattitude}</td>
-                        <td>{row.data.longitude}</td>
+                        <td>{row.data.Location.Latitude}</td>
+                        <td>{row.data.Location.Longitude}</td>
                     </tr>
                     )
                 })}
