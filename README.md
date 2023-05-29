@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Host Link of the Project [Project Link]([https://github.com/facebook/create-react-app](https://easytraffic-42345.web.app/)).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
